@@ -9,4 +9,6 @@ abstract class AbstractLocalDatabaseConnection extends AbstractLocalConnection i
     abstract public function databaseExists(string $database): bool;
 
     abstract public function getDatabases(bool $refresh = false): array;
+
+    abstract public function refreshDatabases(): void;
 }
