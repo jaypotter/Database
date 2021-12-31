@@ -1,6 +1,6 @@
 {
-    "name": "potter/database-connection",
-    "description": "Open Source PHP 8 Database Connection Management",
+    "name": "potter/database",
+    "description": "Open Source PHP 8 Database Interface",
     "minimum-stability": "dev",
     "license": "MIT",
     "type": "library",
