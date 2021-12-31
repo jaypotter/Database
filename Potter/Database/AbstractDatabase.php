@@ -10,7 +10,9 @@ abstract class AbstractDatabase implements DatabaseInterface
     
     abstract public function getName(): string;
 
-    abstract public function getTables(): array;
+    abstract public function getTables(bool $refresh = false): array;
+
+    abstract public function refreshTables(): void;
 
     abstract public function setConnection(DatabaseConnectionInterface $connection): void;
 

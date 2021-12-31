@@ -8,6 +8,7 @@ trait DatabaseTrait
 {
     private DatabaseConnectionInterface $connection;
     private string $name;
+    private array $tables;
 
     final public function getConnection(): DatabaseConnectionInterface
     {
@@ -19,9 +20,17 @@ trait DatabaseTrait
         return $this->name;
     }
 
-    final public function getTables(): array
+    final public function getTables(bool $refresh = false): array
     {
-        return $this->connection->getTables($this->name);
+        if ($refresh||!isset($this->tables)) {
+            $this->refreshTables();
+        }
+        return $this->tables;
+    }
+
+    final public function refreshTables(): void
+    {
+        $this->tables = $this->connection->getTables($this->name);
     }
 
     final public function setConnection(DatabaseConnectionInterface $connection): void

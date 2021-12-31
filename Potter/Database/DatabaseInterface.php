@@ -10,7 +10,9 @@ interface DatabaseInterface
 
     public function getName(): string;
 
-    public function getTables(): array;
+    public function getTables(bool $refresh = false): array;
+
+    public function refreshTables(): void;
 
     public function setConnection(DatabaseConnectionInterface $connection): void;
 
