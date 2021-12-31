@@ -9,6 +9,16 @@ trait TableTrait
     private DatabaseInterface $database;
     private string $name;
 
+    final public function create(): void
+    {
+        //
+    }
+
+    final public function exists(): bool
+    {
+        return $this->database->tableExists($this->name);
+    }
+
     final public function getDatabase(): DatabaseInterface
     {
         return $this->database;

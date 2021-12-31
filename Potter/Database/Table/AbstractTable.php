@@ -6,6 +6,10 @@ use Potter\Database\DatabaseInterface;
 
 abstract class AbstractTable implements TableInterface
 {
+    abstract public function create(): void;
+
+    abstract public function exists(): bool;
+
     abstract public function getDatabase(): DatabaseInterface;
 
     abstract public function getName(): string;

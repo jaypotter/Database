@@ -10,6 +10,21 @@ trait DatabaseTrait
     private string $name;
     private array $tables;
 
+    final public function create(): void
+    {
+        $this->connection->createDatabase($this->name);
+    }
+
+    abstract public function createTable(string $table): void;
+
+    final public function createTableIfNotExists(string $table): void
+    {
+        if ($this->tableExists($table)) {
+            return;
+        }
+        $this->createTable($table);
+    }
+
     final public function getConnection(): DatabaseConnectionInterface
     {
         return $this->connection;
@@ -18,6 +33,11 @@ trait DatabaseTrait
     final public function getName(): string
     {
         return $this->name;
+    }
+
+    final public function exists(): bool
+    {
+        return $this->connection->databaseExists($this->name);
     }
 
     final public function getTables(bool $refresh = false): array

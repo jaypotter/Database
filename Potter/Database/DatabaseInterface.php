@@ -9,6 +9,14 @@ use Potter\Database\{
 
 interface DatabaseInterface
 {
+    public function create(): void;
+    
+    public function createTable(string $table): void;
+
+    public function createTableIfNotExists(string $table): void;
+
+    public function exists(): bool;
+
     public function getConnection(): DatabaseConnectionInterface;
 
     public function getName(): string;
