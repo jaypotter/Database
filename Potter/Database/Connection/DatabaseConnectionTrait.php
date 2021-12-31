@@ -2,15 +2,18 @@
 
 namespace Potter\Database\Connection;
 
-use Potter\Connection\ConnectionInterface;
+use Potter\{
+    Connection\ConnectionInterface,
+    Database\DatabaseInterface
+};
 
 trait DatabaseConnectionTrait
 {
-    abstract public function createDatabase(string $database): void;
+    abstract public function createDatabase(DatabaseInterface $database): void;
 
-    final public function createDatabaseIfNotExists(string $database): void
+    final public function createDatabaseIfNotExists(DatabaseInterface $database): void
     {
-        if ($this->databaseExists($database)) {
+        if ($this->databaseExists($database->getName())) {
             return;
         }
         $this->createDatabase($database);

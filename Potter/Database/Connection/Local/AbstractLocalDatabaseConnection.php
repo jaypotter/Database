@@ -9,9 +9,9 @@ use Potter\{
 
 abstract class AbstractLocalDatabaseConnection extends AbstractLocalConnection implements LocalDatabaseConnectionInterface
 {
-    abstract public function createDatabase(string $database): void;
+    abstract public function createDatabase(DatabaseInterface $database): void;
 
-    abstract public function createDatabaseIfNotExists(string $database): void;
+    abstract public function createDatabaseIfNotExists(DatabaseInterface $database): void;
     
     abstract public function databaseExists(string $database): bool;
 
