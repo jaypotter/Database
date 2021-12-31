@@ -9,6 +9,10 @@ use Potter\{
 
 interface DatabaseConnectionInterface extends ConnectionInterface
 {
+    public function createDatabase(string $database): void;
+
+    public function createDatabaseIfNotExists(string $database): void;
+
     public function databaseExists(string $database): bool;
 
     public function getDatabase(string $database): DatabaseInterface;

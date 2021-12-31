@@ -12,6 +12,10 @@ abstract class AbstractRemoteDatabaseConnection extends AbstractRemoteConnection
 {
     use RemoteConnectionTrait;
 
+    abstract public function createDatabase(string $database): void;
+
+    abstract public function createDatabaseIfNotExists(string $database): void;
+
     abstract public function databaseExists(string $database): bool;
 
     abstract public function getDatabase(string $database): DatabaseInterface;
