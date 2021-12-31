@@ -2,9 +2,9 @@
 
 namespace Potter\Database\Connection\Local;
 
-use Potter\Connection\{
-    Database\DatabaseConnectionInterface,
-    Local\LocalConnectionInterface
+use Potter\{
+    Connection\Local\LocalConnectionInterface,
+    Database\DatabaseConnectionInterface
 };
 
 interface LocalDatabaseConnectionInterface extends DatabaseConnectionInterface, LocalConnectionInterface
