@@ -10,6 +10,16 @@ trait DatabaseTrait
     private string $name;
     private array $tables;
 
+    abstract public function createTable(string $table): void;
+
+    final public function createTableIfNotExists(string $table): void
+    {
+        if ($this->tableExists($table)) {
+            return;
+        }
+        $this->createTable($table);
+    }
+
     final public function getConnection(): DatabaseConnectionInterface
     {
         return $this->connection;
