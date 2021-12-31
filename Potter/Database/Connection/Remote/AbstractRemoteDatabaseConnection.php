@@ -2,7 +2,10 @@
 
 namespace Potter\Database\Connection\Remote;
 
-use Potter\Connection\Remote\AbstractRemoteConnection;
+use Potter\{
+    Connection\Remote\AbstractRemoteConnection,
+    Database\DatabaseInterface
+};
 
 abstract class AbstractRemoteDatabaseConnection extends AbstractRemoteConnection implements RemoteDatabaseConnectionInterface
 {

@@ -2,7 +2,10 @@
 
 namespace Potter\Database\Connection\Local;
 
-use Potter\Connection\Local\AbstractLocalConnection;
+use Potter\{
+    Connection\Local\AbstractLocalConnection,
+    Database\DatabaseInterface
+};
 
 abstract class AbstractLocalDatabaseConnection extends AbstractLocalConnection implements LocalDatabaseConnectionInterface
 {
