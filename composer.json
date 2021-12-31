@@ -15,7 +15,6 @@
     },
     "require": {
         "php": ">=8.0",
-        "potter/local-connection": "dev-main",
-        "potter/remote-connection": "dev-main"
+        "potter/connection": "dev-main"
     }
 }
