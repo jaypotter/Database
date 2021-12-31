@@ -1,6 +1,6 @@
 <?php
 
-namespace Potter\Connection\Database;
+namespace Potter\Database\Connection;
 
 use Potter\Connection\ConnectionInterface;
 

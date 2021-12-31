@@ -1,6 +1,6 @@
 <?php
 
-namespace Potter\Connection\Database\Remote;
+namespace Potter\Database\Connection\Remote;
 
 use Potter\Connection\Remote\AbstractRemoteConnection;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Potter\Connection\Database\Local;
+namespace Potter\Database\Connection\Local;
 
 use Potter\Connection\Local\AbstractLocalConnection;
 
