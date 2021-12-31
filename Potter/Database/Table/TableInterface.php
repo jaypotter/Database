@@ -6,6 +6,10 @@ use Potter\Database\DatabaseInterface;
 
 interface TableInterface
 {
+    public function create(): void;
+
+    public function exists(): bool;
+
     public function getDatabase(): DatabaseInterface;
 
     public function getName(): string;
