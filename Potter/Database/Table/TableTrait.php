@@ -24,8 +24,8 @@ trait TableTrait
         $this->database = $database;
     }
     
-    final public function setName(): string
+    final public function setName(string $table): string
     {
-        $this->name = $name;
+        $this->name = $table;
     }
 }
