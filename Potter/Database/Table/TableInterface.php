@@ -12,5 +12,5 @@ interface TableInterface
 
     public function setDatabase(DatabaseInterface $database): void;
 
-    public function setName(): string;
+    public function setName(string $table): string;
 }
