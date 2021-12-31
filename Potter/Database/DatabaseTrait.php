@@ -42,4 +42,12 @@ trait DatabaseTrait
     {
         $this->name = $name;
     }
+
+    final public function tableExists(string $table): bool
+    {
+        return in_array(
+            needle: $table,
+            haystack: $this->getTables()
+        );
+    }
 }
