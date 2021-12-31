@@ -21,7 +21,7 @@ abstract class AbstractDatabase implements DatabaseInterface
 
     abstract public function setConnection(DatabaseConnectionInterface $connection): void;
 
-    abstract public function setName(string $name): void;
+    abstract public function setName(string $database): void;
 
     abstract public function tableExists(string $table): bool;
 }

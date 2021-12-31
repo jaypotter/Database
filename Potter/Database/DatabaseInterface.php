@@ -21,7 +21,7 @@ interface DatabaseInterface
 
     public function setConnection(DatabaseConnectionInterface $connection): void;
 
-    public function setName(string $name): void;
+    public function setName(string $database): void;
 
     public function tableExists(string $table): bool;
 }

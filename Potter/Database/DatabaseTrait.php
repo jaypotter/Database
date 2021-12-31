@@ -38,9 +38,9 @@ trait DatabaseTrait
         $this->connection = $connection;
     }
 
-    final public function setName(string $name): void
+    final public function setName(string $database): void
     {
-        $this->name = $name;
+        $this->name = $database;
     }
 
     final public function tableExists(string $table): bool
