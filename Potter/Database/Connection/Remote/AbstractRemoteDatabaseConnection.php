@@ -1,6 +1,6 @@
 <?php
 
-namespace Potter\Connection\Database\Remote;
+namespace Potter\Database\Connection\Remote;
 
 use Potter\Connection\Remote\AbstractRemoteConnection;
 
@@ -8,7 +8,11 @@ abstract class AbstractRemoteDatabaseConnection extends AbstractRemoteConnection
 {
     abstract public function databaseExists(string $database): bool;
 
+    abstract public function getDatabase(string $database): DatabaseInterface;
+
     abstract public function getDatabases(bool $refresh = false): array;
+
+    abstract public function getTables(string $database): array;
 
     abstract public function refreshDatabases(): void;
 }
