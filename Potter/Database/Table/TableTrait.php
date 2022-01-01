@@ -9,11 +9,6 @@ trait TableTrait
     private DatabaseInterface $database;
     private string $name;
 
-    final public function create(): void
-    {
-        //
-    }
-
     final public function exists(): bool
     {
         return $this->database->tableExists($this->name);
@@ -34,7 +29,7 @@ trait TableTrait
         $this->database = $database;
     }
     
-    final public function setName(string $table): string
+    final public function setName(string $table): void
     {
         $this->name = $table;
     }

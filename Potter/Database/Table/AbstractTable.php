@@ -16,5 +16,5 @@ abstract class AbstractTable implements TableInterface
 
     abstract public function setDatabase(DatabaseInterface $database): void;
 
-    abstract public function setName(string $table): string;
+    abstract public function setName(string $table): void;
 }
