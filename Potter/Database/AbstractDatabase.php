@@ -9,7 +9,10 @@ use Potter\Database\{
 
 abstract class AbstractDatabase implements DatabaseInterface
 {
-    abstract public function create(): void;
+    final public function create(): void
+    {
+        $this->getConnection()->createDatabase($this);
+    }
 
     abstract public function createTable(TableInterface $table): void;
 

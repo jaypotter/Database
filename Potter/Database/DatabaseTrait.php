@@ -13,11 +13,6 @@ trait DatabaseTrait
     private string $name;
     private array $tables;
 
-    final public function create(): void
-    {
-        $this->connection->createDatabase($this);
-    }
-
     abstract public function createTable(TableInterface $table): void;
 
     final public function createTableIfNotExists(TableInterface $table): void
