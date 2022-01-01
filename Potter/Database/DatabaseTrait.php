@@ -2,7 +2,10 @@
 
 namespace Potter\Database;
 
-use Potter\Database\Connection\DatabaseConnectionInterface;
+use Potter\Database\{
+    Connection\DatabaseConnectionInterface,
+    Table\TableInterface
+};
 
 trait DatabaseTrait
 {
@@ -15,11 +18,11 @@ trait DatabaseTrait
         $this->connection->createDatabase($this);
     }
 
-    abstract public function createTable(string $table): void;
+    abstract public function createTable(TableInterface $table): void;
 
-    final public function createTableIfNotExists(string $table): void
+    final public function createTableIfNotExists(TableInterface $table): void
     {
-        if ($this->tableExists($table)) {
+        if ($this->tableExists($table->getName())) {
             return;
         }
         $this->createTable($table);

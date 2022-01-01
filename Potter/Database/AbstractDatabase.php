@@ -11,9 +11,9 @@ abstract class AbstractDatabase implements DatabaseInterface
 {
     abstract public function create(): void;
 
-    abstract public function createTable(string $table): void;
+    abstract public function createTable(TableInterface $table): void;
 
-    abstract public function createTableIfNotExists(string $table): void;
+    abstract public function createTableIfNotExists(TableInterface $table): void;
 
     abstract public function exists(): bool;
     

@@ -11,9 +11,9 @@ interface DatabaseInterface
 {
     public function create(): void;
     
-    public function createTable(string $table): void;
+    public function createTable(TableInterface $table): void;
 
-    public function createTableIfNotExists(string $table): void;
+    public function createTableIfNotExists(TableInterface $table): void;
 
     public function exists(): bool;
 
