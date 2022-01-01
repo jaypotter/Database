@@ -12,7 +12,7 @@ trait DatabaseTrait
 
     final public function create(): void
     {
-        $this->connection->createDatabase($this->name);
+        $this->connection->createDatabase($this);
     }
 
     abstract public function createTable(string $table): void;
