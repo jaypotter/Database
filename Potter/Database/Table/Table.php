@@ -13,4 +13,9 @@ final class Table extends AbstractTable
         $this->setDatabase($database);
         $this->setName($table);
     }
+
+    final public function create(): void
+    {
+        $this->getDatabase->createTable($this);
+    }
 }
