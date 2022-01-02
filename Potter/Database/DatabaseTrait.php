@@ -8,7 +8,7 @@ use Potter\Database\{
 };
 
 trait DatabaseTrait
-{
+{    
     private DatabaseConnectionInterface $connection;
     private array $tables;
 
