@@ -2,19 +2,14 @@
 
 namespace Potter\Database\Table;
 
-use Potter\Database\DatabaseInterface;
+use Potter\{
+    Database\DatabaseInterface,
+    Dimension\Hybrid\HybridDimension
+};
 
-abstract class AbstractTable implements TableInterface
+abstract class AbstractTable extends tHybridDimension implements TableInterface
 {
-    abstract public function create(): void;
-
-    abstract public function exists(): bool;
-
     abstract public function getDatabase(): DatabaseInterface;
 
-    abstract public function getName(): string;
-
     abstract public function setDatabase(DatabaseInterface $database): void;
-
-    abstract public function setName(string $table): void;
 }
