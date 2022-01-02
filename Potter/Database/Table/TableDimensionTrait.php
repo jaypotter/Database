@@ -2,6 +2,8 @@
 
 namespace Potter\Database\Table;
 
+use Potter\Database\DatabaseInterface;
+
 trait TableDimensionTrait
 {
     final public function getDatabase(): DatabaseInterface

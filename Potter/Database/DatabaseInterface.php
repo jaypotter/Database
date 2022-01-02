@@ -6,7 +6,7 @@ use Potter\Database\{
     Connection\DatabaseConnectionInterface,
     Table\TableInterface
 };
-use Potter\Dimension\Parent\ParentDimension;
+use Potter\Dimension\Parent\ParentDimensionInterface;
 
 interface DatabaseInterface extends ParentDimensionInterface
 {    

@@ -2,9 +2,9 @@
 
 namespace Potter\Database;
 
-use Potter\{
+use Potter\Database\{
     Connection\DatabaseConnectionInterface,
-    //Database\Table\TableInterface
+    Table\TableInterface
 };
 
 trait DatabaseTrait

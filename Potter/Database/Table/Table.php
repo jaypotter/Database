@@ -2,9 +2,9 @@
 
 namespace Potter\Database\Table;
 
-use Potter\Database\NameTrait;
+use Potter\Dimension\Child\ChildDimension;
 
-abstract class Table extends AbstractTable
+abstract class Table extends ChildDimension
 {
     use TableDimensionTrait, TableTrait;
 }

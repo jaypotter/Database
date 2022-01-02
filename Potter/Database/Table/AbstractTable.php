@@ -7,7 +7,7 @@ use Potter\{
     Dimension\Hybrid\HybridDimension
 };
 
-abstract class AbstractTable extends tHybridDimension implements TableInterface
+abstract class AbstractTable extends HybridDimension implements TableInterface
 {
     abstract public function getDatabase(): DatabaseInterface;
 
