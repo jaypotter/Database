@@ -2,19 +2,19 @@
 
 namespace Potter\Database;
 
-use Potter\Database\{
+use Potter\{
     Connection\DatabaseConnectionInterface,
-    Table\TableInterface
+    //Database\Table\TableInterface
 };
 
 trait DatabaseTrait
 {
     private DatabaseConnectionInterface $connection;
-    private string $name;
     private array $tables;
 
-    abstract public function createTable(TableInterface $table): void;
+    //abstract public function createTable(TableInterface $table): void;
 
+    /*
     final public function createTableIfNotExists(TableInterface $table): void
     {
         if ($this->tableExists($table->getName())) {
@@ -22,16 +22,14 @@ trait DatabaseTrait
         }
         $this->createTable($table);
     }
+    */
 
     final public function getConnection(): DatabaseConnectionInterface
     {
         return $this->connection;
     }
 
-    final public function getName(): string
-    {
-        return $this->name;
-    }
+    abstract public function getName(): string;
 
     final public function exists(): bool
     {
@@ -40,25 +38,18 @@ trait DatabaseTrait
 
     final public function getTables(bool $refresh = false): array
     {
-        if ($refresh||!isset($this->tables)) {
-            $this->refreshTables();
-        }
-        return $this->tables;
+        $refresh = $refresh || !isset($this->tables);
+        return $refresh ? $this->refreshTables() : $this->tables;
     }
 
-    final public function refreshTables(): void
+    final public function refreshTables(): array
     {
-        $this->tables = $this->connection->getTables($this->name);
+        return $this->tables = $this->connection->getTables($this->name);
     }
 
     final public function setConnection(DatabaseConnectionInterface $connection): void
     {
         $this->connection = $connection;
-    }
-
-    final public function setName(string $database): void
-    {
-        $this->name = $database;
     }
 
     final public function tableExists(string $table): bool

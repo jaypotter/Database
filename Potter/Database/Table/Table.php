@@ -2,20 +2,9 @@
 
 namespace Potter\Database\Table;
 
-use Potter\Database\DatabaseInterface;
+use Potter\Database\NameTrait;
 
-final class Table extends AbstractTable
+abstract class Table extends AbstractTable
 {
-    use TableTrait;
-
-    public function __construct(DatabaseInterface $database, string $table)
-    {
-        $this->setDatabase($database);
-        $this->setName($table);
-    }
-
-    final public function create(): void
-    {
-        $this->getDatabase()->createTable($this);
-    }
+    use TableDimensionTrait, TableTrait;
 }

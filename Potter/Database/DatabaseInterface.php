@@ -2,34 +2,27 @@
 
 namespace Potter\Database;
 
-use Potter\Database\{
+use Potter\{
     Connection\DatabaseConnectionInterface,
-    Table\TableInterface
+    Dimension\Parent\ParentDimension,
+    //Database\Table\TableInterface
 };
 
-interface DatabaseInterface
-{
-    public function create(): void;
-    
-    public function createTable(TableInterface $table): void;
+interface DatabaseInterface extends ParentDimensionInterface
+{    
+    //public function createTable(TableInterface $table): void;
 
-    public function createTableIfNotExists(TableInterface $table): void;
-
-    public function exists(): bool;
+    //public function createTableIfNotExists(TableInterface $table): void;
 
     public function getConnection(): DatabaseConnectionInterface;
 
-    public function getName(): string;
-
-    public function getTable(string $table): TableInterface;
+    //public function getTable(string $table): TableInterface;
 
     public function getTables(bool $refresh = false): array;
 
-    public function refreshTables(): void;
+    public function refreshTables(): array;
 
     public function setConnection(DatabaseConnectionInterface $connection): void;
-
-    public function setName(string $database): void;
 
     public function tableExists(string $table): bool;
 }

@@ -2,19 +2,14 @@
 
 namespace Potter\Database\Table;
 
-use Potter\Database\DatabaseInterface;
+use Potter\{
+    Database\DatabaseInterface,
+    Dimension\Hybrid\HybridDimensionInterface
+};
 
-interface TableInterface
+interface TableInterface extends HybridDimensionInterface
 {
-    public function create(): void;
-
-    public function exists(): bool;
-
     public function getDatabase(): DatabaseInterface;
 
-    public function getName(): string;
-
     public function setDatabase(DatabaseInterface $database): void;
-
-    public function setName(string $table): void;
 }

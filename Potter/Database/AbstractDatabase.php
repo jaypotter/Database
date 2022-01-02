@@ -2,37 +2,29 @@
 
 namespace Potter\Database;
 
-use Potter\Database\{
+use Potter\{
     Connection\DatabaseConnectionInterface,
-    Table\TableInterface
+    Dimension\Parent\ParentDimension,
+    //Database\Table\TableInterface
 };
 
-abstract class AbstractDatabase implements DatabaseInterface
+abstract class AbstractDatabase extends ParentDimension implements DatabaseInterface
 {
-    final public function create(): void
-    {
-        $this->getConnection()->createDatabase($this);
-    }
+    use DatabaseDimensionTrait;
 
-    abstract public function createTable(TableInterface $table): void;
+    //abstract public function createTable(TableInterface $table): void;
 
-    abstract public function createTableIfNotExists(TableInterface $table): void;
-
-    abstract public function exists(): bool;
+    //abstract public function createTableIfNotExists(TableInterface $table): void;
     
     abstract public function getConnection(): DatabaseConnectionInterface;
-    
-    abstract public function getName(): string;
 
-    abstract public function getTable(string $table): TableInterface;
+    //abstract public function getTable(string $table): TableInterface;
 
     abstract public function getTables(bool $refresh = false): array;
 
     abstract public function refreshTables(): void;
 
     abstract public function setConnection(DatabaseConnectionInterface $connection): void;
-
-    abstract public function setName(string $database): void;
 
     abstract public function tableExists(string $table): bool;
 }
