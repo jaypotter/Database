@@ -20,7 +20,7 @@ abstract class AbstractDatabase extends ParentDimension implements DatabaseInter
 
     abstract public function getTables(bool $refresh = false): array;
 
-    abstract public function refreshTables(): void;
+    abstract public function refreshTables(): array;
 
     abstract public function setConnection(DatabaseConnectionInterface $connection): void;
 
