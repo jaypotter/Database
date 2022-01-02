@@ -10,8 +10,6 @@ use Potter\Dimension\Parent\ParentDimension;
 
 abstract class AbstractDatabase extends ParentDimension implements DatabaseInterface
 {
-    use DatabaseDimensionTrait;
-
     //abstract public function createTable(TableInterface $table): void;
 
     //abstract public function createTableIfNotExists(TableInterface $table): void;
