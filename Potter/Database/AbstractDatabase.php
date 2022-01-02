@@ -10,6 +10,8 @@ use Potter\{
 
 abstract class AbstractDatabase extends ParentDimension implements DatabaseInterface
 {
+    use DatabaseDimensionTrait;
+
     //abstract public function createTable(TableInterface $table): void;
 
     //abstract public function createTableIfNotExists(TableInterface $table): void;
@@ -19,8 +21,6 @@ abstract class AbstractDatabase extends ParentDimension implements DatabaseInter
     //abstract public function getTable(string $table): TableInterface;
 
     abstract public function getTables(bool $refresh = false): array;
-
-    abstract public function nameIsValid(string $name): bool;
 
     abstract public function refreshTables(): void;
 
