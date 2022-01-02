@@ -2,11 +2,11 @@
 
 namespace Potter\Database;
 
-use Potter\{
+use Potter\Database\{
     Connection\DatabaseConnectionInterface,
-    Dimension\Parent\ParentDimension,
-    //Database\Table\TableInterface
+    Table\TableInterface
 };
+use Potter\Dimension\Parent\ParentDimension;
 
 interface DatabaseInterface extends ParentDimensionInterface
 {    
