@@ -44,7 +44,7 @@ trait DatabaseTrait
 
     final public function refreshTables(): array
     {
-        return $this->tables = $this->connection->getTables($this->name);
+        return $this->tables = $this->connection->getTables($this->getName());
     }
 
     final public function setConnection(DatabaseConnectionInterface $connection): void
