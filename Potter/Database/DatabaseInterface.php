@@ -20,7 +20,7 @@ interface DatabaseInterface extends ParentDimensionInterface
 
     public function getTables(bool $refresh = false): array;
 
-    public function refreshTables(): void;
+    public function refreshTables(): array;
 
     public function setConnection(DatabaseConnectionInterface $connection): void;
 
