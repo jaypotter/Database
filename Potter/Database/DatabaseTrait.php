@@ -38,15 +38,13 @@ trait DatabaseTrait
 
     final public function getTables(bool $refresh = false): array
     {
-        if ($refresh||!isset($this->tables)) {
-            $this->refreshTables();
-        }
-        return $this->tables;
+        $refresh = $refresh || !isset($this->tables);
+        return $refresh ? $this->refreshTables() : $this->tables;
     }
 
-    final public function refreshTables(): void
+    final public function refreshTables(): array
     {
-        $this->tables = $this->connection->getTables($this->name);
+        return $this->tables = $this->connection->getTables($this->name);
     }
 
     final public function setConnection(DatabaseConnectionInterface $connection): void
