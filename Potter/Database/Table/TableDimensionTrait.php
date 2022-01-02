@@ -12,7 +12,9 @@ trait TableDimensionTrait
 {
     final public function getDatabase(): DatabaseInterface
     {
-        return $this->getParent();
+        /** @var DatabaseInterface $parent */
+        $parent = $this->getParent();
+        return $parent;
     }
 
     abstract public function getParent(): ParentDimensionInterface;
