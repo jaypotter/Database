@@ -3,12 +3,12 @@
 namespace Potter\Database\Connection\Local;
 
 use Potter\{
-    Connection\Local\AbstractLocalConnection,
+    Connection\Local\LocalConnection,
     Database\DatabaseInterface
 };
 
-abstract class AbstractLocalDatabaseConnection extends AbstractLocalConnection implements LocalDatabaseConnectionInterface
-{
+abstract class AbstractLocalDatabaseConnection extends LocalConnection implements LocalDatabaseConnectionInterface
+{    
     abstract public function createDatabase(DatabaseInterface $database): void;
 
     abstract public function createDatabaseIfNotExists(DatabaseInterface $database): void;

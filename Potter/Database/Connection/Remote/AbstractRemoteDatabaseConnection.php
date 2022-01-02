@@ -2,15 +2,15 @@
 
 namespace Potter\Database\Connection\Remote;
 
-use Potter\Connection\Remote\{
-    AbstractRemoteConnection,
-    RemoteConnectionTrait    
+use Potter\Connection\Remote\RemoteConnection;
+use Potter\Database\{
+    DatabaseInterface,
+    Connection\DatabaseConnectionTrait
 };
-use Potter\Database\DatabaseInterface;
 
-abstract class AbstractRemoteDatabaseConnection extends AbstractRemoteConnection implements RemoteDatabaseConnectionInterface
+abstract class AbstractRemoteDatabaseConnection extends RemoteConnection implements RemoteDatabaseConnectionInterface
 {
-    use RemoteConnectionTrait;
+    use DatabaseConnectionTrait;
 
     abstract public function createDatabase(DatabaseInterface $database): void;
 

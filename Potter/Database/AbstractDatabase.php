@@ -6,6 +6,7 @@ use Potter\Database\{
     Connection\DatabaseConnectionInterface,
     Table\TableInterface
 };
+use Potter\Dimension\Parent\ParentDimension;
 
 abstract class AbstractDatabase implements DatabaseInterface
 {
