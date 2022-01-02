@@ -33,7 +33,7 @@ trait DatabaseTrait
 
     final public function exists(): bool
     {
-        return $this->connection->databaseExists($this->name);
+        return $this->connection->databaseExists($this->getName());
     }
 
     final public function getTables(bool $refresh = false): array
