@@ -28,11 +28,24 @@ final class Database extends AbstractDatabase
             handle: $this->getHandle());
     }
     
+    private function flattenResult(ResultInterface $result): ResultInterface
+    {
+        $flatResult = [];
+        foreach ($result as $row) {
+            if (count($row) > 1) {
+                array_push($flatResult, array_values($row));
+                continue;
+            }
+            array_push($flatResult, array_values($row)[0]);
+        }
+        return $flatResult;
+    }
+    
     public function getDatabases(): ResultInterface
     {
         $driver = $this->getDatabaseDriver();
         if ($driver instanceOf MySQLDriverInterface) {
-            return $driver->showDatabases($this->getHandle());
+            return $this->flattenResult($driver->showDatabases($this->getHandle()));
         }
         return new EmptyResult;
     }
