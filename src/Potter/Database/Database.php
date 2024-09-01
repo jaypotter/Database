@@ -22,6 +22,8 @@ final class Database extends AbstractDatabase
     
     public function prepare(string $query): StatementInterface
     {
-        
+        return $this->getDatabaseDriver()->prepare(
+            query: $query,
+            handle: $this->getHandle());
     }
 }
