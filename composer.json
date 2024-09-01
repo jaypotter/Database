@@ -3,7 +3,10 @@
     "description": "PHP Database Interface",
     "type": "library",
     "require": {
-        "php": "^8.3"
+        "php": "^8.3",
+        "potter/stringable": "^0.0.1",
+        "potter/array-access": "^0.0.1",
+        "potter/handle": "^0.0.1"
     },
     "license": "MIT",
     "autoload": {
