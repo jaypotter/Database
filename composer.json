@@ -4,11 +4,11 @@
     "type": "library",
     "require": {
         "php": "^8.3",
-        "potter/array-access": "dev-main",
+        "potter/array-access": "^0.0.2",
         "potter/aware": "^0.0.1",
+        "potter/driver": "^0.0.1",
         "potter/handle": "^0.0.1",
-        "potter/stringable": "^0.0.1",
-        "potter/driver": "dev-main"
+        "potter/stringable": "^0.0.1"
     },
     "license": "MIT",
     "autoload": {
@@ -22,5 +22,5 @@
             "email": "j@ypotter.ca"
         }
     ],
-    "minimum-stability": "dev"
+    "minimum-stability": "stable"
 }
