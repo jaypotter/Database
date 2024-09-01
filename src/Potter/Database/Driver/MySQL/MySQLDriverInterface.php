@@ -11,4 +11,5 @@ interface MySQLDriverInterface extends DatabaseDriverInterface
 {
     public function selectDatabase(object $handle): ResultInterface;
     public function showDatabases(object $handle): ResultInterface;
+    public function use(string $database, object $handle): void;
 }
