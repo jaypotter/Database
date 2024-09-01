@@ -32,7 +32,6 @@ final class Database extends AbstractDatabase
     {
         $flatResult = [];
         foreach ($result as $row) {
-            print_r($row);
             if (count($row) > 1) {
                 array_push($flatResult, array_values($row));
                 continue;
@@ -46,7 +45,7 @@ final class Database extends AbstractDatabase
     {
         $driver = $this->getDatabaseDriver();
         if ($driver instanceOf MySQLDriverInterface) {
-            return $this->flattenResult($driver->showDatabases($this->getHandle()));
+            return new EmptyResult($this->flattenResult($driver->showDatabases($this->getHandle())));
         }
         return new EmptyResult;
     }
