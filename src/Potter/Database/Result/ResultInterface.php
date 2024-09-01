@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace Potter\Database\Result;
 
-use Potter\ArrayAccess\ArrayAccessInterface;
+use Potter\ArrayAccess\Numbered\NumberedArrayInterface;
 
-interface ResultInterface extends ArrayAccessInterface
+interface ResultInterface extends NumberedArrayInterface
 {
 
 }
