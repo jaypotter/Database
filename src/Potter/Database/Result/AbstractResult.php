@@ -6,5 +6,5 @@ namespace Potter\Database\Result;
 
 abstract class AbstractResult implements ResultInterface
 {
-    //put your code here
+
 }
