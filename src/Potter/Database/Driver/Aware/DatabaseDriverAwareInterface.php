@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Potter\Database\Driver\Aware;
 
-use Potter\Driver\Database\DatabaseDriverInterface;
+use Potter\Database\Driver\DatabaseDriverInterface;
 
 interface DatabaseDriverAwareInterface 
 {
