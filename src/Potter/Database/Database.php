@@ -9,7 +9,7 @@ use Potter\Driver\Aware\DriverAwareTrait;
 use Potter\Database\Driver\{DatabaseDriverInterface, Aware\DatabaseDriverAwareTrait, MySQL\MySQLDriverInterface};
 use Potter\Database\Statement\StatementInterface;
 use Potter\Handle\HandleTrait;
-use Potter\Database\Result\EmptyResult;
+use Potter\Database\Result\{ResultInterface, EmptyResult};
 
 final class Database extends AbstractDatabase
 {
