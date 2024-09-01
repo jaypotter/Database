@@ -55,6 +55,17 @@ final class Database extends AbstractDatabase
         return $database === $this->getCurrentDatabase()->toArray()[0];
     }
     
+    public function useDatabase(string $database): void
+    {
+        if (!$this->databaseExists($database)) {
+            throw new \Exception;
+        }
+        $driver = $this->getDatabaseDriver();
+        if ($driver instanceOf MySQLDriverInterface) {
+            $driver->use($database, $this->getHandle());
+        }
+    }
+    
     public function getDatabases(): ResultInterface
     {
         $driver = $this->getDatabaseDriver();
