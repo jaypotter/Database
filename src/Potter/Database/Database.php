@@ -30,15 +30,24 @@ final class Database extends AbstractDatabase
     
     private function flattenResult(ResultInterface $result): ResultInterface
     {
-        $flatResult = [];
+        $flattenedResult = [];
         foreach ($result as $row) {
             if (count($row) > 1) {
-                array_push($flatResult, array_values($row));
+                array_push($flattenedResult, array_values($row));
                 continue;
             }
-            array_push($flatResult, array_values($row)[0]);
+            array_push($flattenedResult, array_values($row)[0]);
         }
-        return new EmptyResult($flatResult);
+        return new EmptyResult($flattenedResult);
+    }
+    
+    public function getCurrentDatabase(): ResultInterface
+    {
+        $driver = $this->getDatabaseDriver();
+        if ($driver instanceOf MySQLDriverInterface) {
+            return $this->flattenResult($driver->selectDatabase($this->getHandle()));
+        }
+        return new EmptyResult;
     }
     
     public function getDatabases(): ResultInterface

@@ -10,5 +10,6 @@ abstract class AbstractDatabase implements DatabaseInterface
 {
     abstract public function prepare(string $query): StatementInterface;
     
+    abstract public function getCurrentDatabase(): ResultInterface;
     abstract public function getDatabases(): ResultInterface;
 }
