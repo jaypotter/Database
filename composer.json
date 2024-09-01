@@ -5,8 +5,10 @@
     "require": {
         "php": "^8.3",
         "potter/array-access": "^0.0.1",
+        "potter/aware": "^0.0.1",
         "potter/handle": "^0.0.1",
-        "potter/stringable": "^0.0.1"
+        "potter/stringable": "^0.0.1",
+        "potter/driver": "dev-main"
     },
     "license": "MIT",
     "autoload": {
@@ -20,5 +22,5 @@
             "email": "j@ypotter.ca"
         }
     ],
-    "minimum-stability": "stable"
+    "minimum-stability": "dev"
 }
