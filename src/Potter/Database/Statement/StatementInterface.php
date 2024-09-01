@@ -8,5 +8,5 @@ use Potter\Stringable\StringableInterface;
 
 interface StatementInterface extends StringableInterface
 {
-    public function bind(mixed ...$vars): void;
+    public function execute(mixed ...$vars): void;
 }
