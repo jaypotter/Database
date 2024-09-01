@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace Potter\Database\Result;
 
-abstract class AbstractResult implements ResultInterface
+use Potter\ArrayAccess\Numbered\AbstractNumberedArray;
+
+abstract class AbstractResult extends AbstractNumberedArray implements ResultInterface
 {
 
 }
