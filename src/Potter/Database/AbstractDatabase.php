@@ -12,4 +12,5 @@ abstract class AbstractDatabase implements DatabaseInterface
     
     abstract public function getCurrentDatabase(): ResultInterface;
     abstract public function getDatabases(): ResultInterface;
+    abstract public function databaseExists(string $database): bool;
 }

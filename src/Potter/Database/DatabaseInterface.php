@@ -14,4 +14,5 @@ interface DatabaseInterface extends HandleInterface, DatabaseDriverAwareInterfac
     
     public function getCurrentDatabase(): ResultInterface;
     public function getDatabases(): ResultInterface;
+    public function databaseExists(string $database): bool;
 }

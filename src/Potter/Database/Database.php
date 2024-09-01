@@ -20,7 +20,7 @@ final class Database extends AbstractDatabase
         $this->setHandle($handle);
         $this->setDatabaseDriver($databaseDriver);
     }
-    
+        
     public function prepare(string $query): StatementInterface
     {
         return $this->getDatabaseDriver()->prepare(
@@ -58,4 +58,10 @@ final class Database extends AbstractDatabase
         }
         return new EmptyResult;
     }
+    
+    public function databaseExists(string $database): bool
+    {
+        return in_array($database, $this->getDatabases());
+    }
+   
 }
