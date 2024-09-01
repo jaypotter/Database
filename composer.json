@@ -4,7 +4,7 @@
     "type": "library",
     "require": {
         "php": "^8.3",
-        "potter/array-access": "^0.0.2",
+        "potter/array-access": "^0.0.3",
         "potter/aware": "^0.0.1",
         "potter/driver": "^0.0.1",
         "potter/handle": "^0.0.1",
