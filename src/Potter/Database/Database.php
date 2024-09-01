@@ -61,7 +61,7 @@ final class Database extends AbstractDatabase
     
     public function databaseExists(string $database): bool
     {
-        return in_array($database, $this->getDatabases());
+        return in_array($database, $this->getDatabases()->toArray());
     }
    
 }
