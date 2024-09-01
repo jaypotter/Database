@@ -5,10 +5,9 @@ declare(strict_types=1);
 namespace Potter\Database;
 
 use Potter\Aware\AwareTrait;
-use Potter\Driver\Aware\DriverAwareTrait;
-use Potter\Database\Driver\{DatabaseDriverInterface, Aware\DatabaseDriverAwareTrait, MySQL\MySQLDriverInterface};
-use Potter\Database\Statement\StatementInterface;
-use Potter\Handle\HandleTrait;
+use Potter\Driver\{Aware\DriverAwareTrait, Database\MySQL\MySQLDriverInterface};
+use Potter\Database\Driver\{DatabaseDriverInterface, Aware\DatabaseDriverAwareTrait};
+use Potter\{Database\Statement\StatementInterface, Handle\HandleTrait};
 use Potter\Database\Result\{ResultInterface, EmptyResult};
 
 final class Database extends AbstractDatabase
@@ -72,6 +71,7 @@ final class Database extends AbstractDatabase
         if ($driver instanceOf MySQLDriverInterface) {
             return $this->flattenResult($driver->showDatabases($this->getHandle()));
         }
+        echo 'aaa'
         return new EmptyResult;
     }
     
