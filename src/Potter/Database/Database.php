@@ -50,6 +50,11 @@ final class Database extends AbstractDatabase
         return new EmptyResult;
     }
     
+    public function isCurrentDatabase(string $database): bool
+    {
+        return $database === $this->getCurrentDatabase()->toArray()[0];
+    }
+    
     public function getDatabases(): ResultInterface
     {
         $driver = $this->getDatabaseDriver();

@@ -13,6 +13,7 @@ interface DatabaseInterface extends HandleInterface, DatabaseDriverAwareInterfac
     public function prepare(string $query): StatementInterface;
     
     public function getCurrentDatabase(): ResultInterface;
+    public function isCurrentDatabase(string $database): bool;
     public function getDatabases(): ResultInterface;
     public function databaseExists(string $database): bool;
 }
