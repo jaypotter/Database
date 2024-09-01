@@ -32,6 +32,7 @@ final class Database extends AbstractDatabase
     {
         $flatResult = [];
         foreach ($result as $row) {
+            print_r($row);
             if (count($row) > 1) {
                 array_push($flatResult, array_values($row));
                 continue;
