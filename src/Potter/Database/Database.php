@@ -71,7 +71,6 @@ final class Database extends AbstractDatabase
         if ($driver instanceOf MySQLDriverInterface) {
             return $this->flattenResult($driver->showDatabases($this->getHandle()));
         }
-        echo 'aaa'
         return new EmptyResult;
     }
     
