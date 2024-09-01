@@ -5,10 +5,12 @@ declare(strict_types=1);
 namespace Potter\Database;
 
 use Potter\Aware\AwareTrait;
-use Potter\Driver\{Aware\DriverAwareTrait, Database\MySQL\MySQLDriverInterface};
+use Potter\MySQL\Driver\MySQLDriverInterface;
+use Potter\Driver\Aware\DriverAwareTrait;
 use Potter\Database\Driver\{DatabaseDriverInterface, Aware\DatabaseDriverAwareTrait};
-use Potter\{Database\Statement\StatementInterface, Handle\HandleTrait};
+use Potter\Database\Statement\StatementInterface;
 use Potter\Database\Result\{ResultInterface, EmptyResult};
+use Potter\Handle\HandleTrait;
 
 final class Database extends AbstractDatabase
 {
