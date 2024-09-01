@@ -37,4 +37,9 @@ final class EmptyResult extends AbstractResult
     {
         unset($this->result[$offset]);
     }
+    
+    public function toArray(): array
+    {
+        return $this->result;
+    }
 }
