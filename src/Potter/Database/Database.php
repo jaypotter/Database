@@ -6,7 +6,7 @@ namespace Potter\Database;
 
 use Potter\Aware\AwareTrait;
 use Potter\Driver\Aware\DriverAwareTrait;
-use Potter\Driver\Database\{DatabaseDriverInterface, Aware\DatabaseDriverAwareTrait};
+use Potter\Database\Driver\{DatabaseDriverInterface, Aware\DatabaseDriverAwareTrait};
 use Potter\Database\Statement\StatementInterface;
 use Potter\Handle\HandleTrait;
 
