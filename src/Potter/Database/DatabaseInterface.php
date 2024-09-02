@@ -20,5 +20,6 @@ interface DatabaseInterface extends HandleInterface, DatabaseDriverAwareInterfac
     public function databaseExists(string $database): bool;
     
     public function createDatabase(string $database): void;
+    public function deleteDatabase(string $database): void;
     public function useDatabase(string $database): void;
 }

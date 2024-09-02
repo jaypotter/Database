@@ -80,6 +80,17 @@ final class Database extends AbstractDatabase
             $driver->createDatabase($this->getHandle(), $database);
         }
     }
+    
+    public function deleteDatabase(string $database): void
+    {
+        if (!$this->databaseExists($database)) {
+            throw new \Exception;
+        }
+        $driver = $this->getDatabaseDriver();
+        if ($driver instanceOf MySQLDriverInterface) {
+            $driver->dropDatabase($this->getHandle(), $database);
+        }
+    }
        
     public function useDatabase(string $database): void
     {
