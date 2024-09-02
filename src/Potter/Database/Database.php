@@ -111,4 +111,18 @@ final class Database extends AbstractDatabase
             $driver->use($this->getHandle(), $database);
         }
     }
+    
+    final public function getTables(): ResultInterface
+    {
+        $driver = $this->getDatabaseDriver();
+        if ($driver instanceOf MySQLDriverInterface) {
+            return $this->flattenResult($driver->showTables($this->getHandle()));
+        }
+        return new EmptyResult;
+    }
+    
+    final public function tableExists(string $table): bool
+    {
+        return in_array($table, $this->getTables()->toArray());
+    }
 }
