@@ -77,7 +77,7 @@ final class Database extends AbstractDatabase
         }
         $driver = $this->getDatabaseDriver();
         if ($driver instanceOf MySQLDriverInterface) {
-            $driver->createDatabase($database, $this->getHandle());
+            $driver->createDatabase($this->getHandle(), $database);
         }
     }
        
@@ -88,7 +88,7 @@ final class Database extends AbstractDatabase
         }
         $driver = $this->getDatabaseDriver();
         if ($driver instanceOf MySQLDriverInterface) {
-            $driver->use($database, $this->getHandle());
+            $driver->use($this->getHandle(), $database);
         }
     }
 }
