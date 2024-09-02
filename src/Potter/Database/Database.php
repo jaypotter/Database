@@ -4,13 +4,22 @@ declare(strict_types=1);
 
 namespace Potter\Database;
 
-use Potter\Aware\AwareTrait;
-use Potter\MySQL\Driver\MySQLDriverInterface;
-use Potter\Driver\Aware\DriverAwareTrait;
-use Potter\Database\Driver\{DatabaseDriverInterface, Aware\DatabaseDriverAwareTrait};
-use Potter\Database\Statement\StatementInterface;
-use Potter\Database\Result\{ResultInterface, EmptyResult};
-use Potter\Handle\HandleTrait;
+use Potter\{
+    Aware\AwareTrait,
+    Database\Statement\StatementInterface,
+    Driver\Aware\DriverAwareTrait,
+    Handle\HandleTrait,
+    MySQL\Driver\MySQLDriverInterface
+};
+use Potter\Database\Driver\{
+    DatabaseDriverInterface, 
+    Aware\DatabaseDriverAwareTrait
+};
+use Potter\Database\Result\{
+    ResultInterface, 
+    EmptyResult
+    
+};
 
 final class Database extends AbstractDatabase
 {

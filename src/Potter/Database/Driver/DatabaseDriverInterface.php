@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Potter\Database\Driver;
 
-use Potter\Driver\DriverInterface;
-use Potter\Database\Statement\StatementInterface;
+use Potter\{
+    Database\Statement\StatementInterface,
+    Driver\DriverInterface
+};
 
 interface DatabaseDriverInterface extends DriverInterface
 {

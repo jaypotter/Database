@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Potter\Database;
 
-use Potter\Database\{Statement\StatementInterface, Result\ResultInterface};
+use Potter\Database\{
+    Statement\StatementInterface, 
+    Result\ResultInterface
+};
 
 abstract class AbstractDatabase implements DatabaseInterface
 {

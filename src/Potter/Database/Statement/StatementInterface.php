@@ -4,8 +4,10 @@ declare(strict_types=1);
 
 namespace Potter\Database\Statement;
 
-use Potter\Database\Result\ResultInterface;
-use Potter\Stringable\StringableInterface;
+use Potter\{
+    Database\Result\ResultInterface,
+    Stringable\StringableInterface
+};
 
 interface StatementInterface extends StringableInterface
 {
