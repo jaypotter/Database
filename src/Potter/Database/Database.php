@@ -147,4 +147,6 @@ final class Database extends AbstractDatabase
             $driver->createTable($table, ...$columns);
         }
     }
+    
+    public function deleteTable(string $table): void;
 }

@@ -30,4 +30,5 @@ abstract class AbstractDatabase implements DatabaseInterface
     
     abstract public function getTable(string $table): TableInterface;
     abstract public function createTable(string $table, ColumnInterface ...$columns): void;
+    abstract public function deleteTable(string $table): void;
 }
