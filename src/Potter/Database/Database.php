@@ -18,7 +18,10 @@ use Potter\Database\Driver\{
 use Potter\Database\Result\{
     ResultInterface, 
     EmptyResult
-    
+};
+use Potter\Database\Table\{
+    TableInterface,
+    Table
 };
 
 final class Database extends AbstractDatabase
@@ -121,8 +124,13 @@ final class Database extends AbstractDatabase
         return new EmptyResult;
     }
     
-    final public function tableExists(string $table): bool
+    public function tableExists(string $table): bool
     {
         return in_array($table, $this->getTables()->toArray());
+    }
+    
+    public function getTable(string $table): TableInterface
+    {
+        return new Table($this, $table);
     }
 }
