@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Potter\Database\Aware;
 
+use Potter\Database\DatabaseInterface;
+
 trait DatabaseAwareTrait 
 {
     private const string DATABASE = 'database';
