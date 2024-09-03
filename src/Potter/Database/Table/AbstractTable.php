@@ -10,5 +10,4 @@ abstract class AbstractTable implements TableInterface
 {
     abstract public function tableExists(): bool;
     abstract public function createTable(ColumnInterface ...$columns): void;
-    abstract public function getColumns(): array;
 }
