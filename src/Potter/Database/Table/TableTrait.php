@@ -13,7 +13,10 @@ trait TableTrait
         return $this->getDatabase()->tableExists($this->getName());
     }
     
-    final public function createTable(ColumnInterface ...$columns): void;
+    final public function createTable(ColumnInterface ...$columns): void
+    {
+        $this->getDatabase()->createTable($table, ...$columns);
+    }
     
     abstract public function getDatabase(): DatabaseInterface;
     abstract public function getName(): string;
