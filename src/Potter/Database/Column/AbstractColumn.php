@@ -6,10 +6,10 @@ namespace Potter\Database\Column;
 
 abstract class AbstractColumn implements ColumnInterface
 {
-    abstract public function getType(): string;
-    abstract public function hasType(): bool;
-    abstract protected function setType(string $type): string;
-    abstract protected function unsetType(): void;
-    abstract public function withType(string $type): static;
-    abstract public function withoutType(): static;
+    abstract public function getColumnType(): string;
+    abstract public function hasColumnType(): bool;
+    abstract protected function setColumnType(string $columnType): string;
+    abstract protected function unsetColumnType(): void;
+    abstract public function withColumnType(string $columnType): static;
+    abstract public function withoutColumnType(): static;
 }

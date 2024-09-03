@@ -8,8 +8,8 @@ use Potter\Name\NameInterface;
 
 interface ColumnInterface extends NameInterface
 {
-    public function getType(): string;
-    public function hasType(): bool;
-    public function withType(string $type): static;
-    public function withoutType(): static;
+    public function getColumnType(): string;
+    public function hasColumnType(): bool;
+    public function withColumnType(string $type): static;
+    public function withoutColumnType(): static;
 }

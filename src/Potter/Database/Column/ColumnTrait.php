@@ -6,39 +6,38 @@ namespace Potter\Database\Column;
 
 trait ColumnTrait 
 {
-    private const string TYPE = 'type';
-    private string $type;
+    private const string COLUMN_TYPE = 'columnType';
+    private string $columnType;
     
-    final public function getType(): string
+    final public function getColumnType(): string
     {
-        return $this->get(self::TYPE);
+        return $this->get(self::COLUMN_TYPE);
     }
     
-    final public function hasType(): bool
+    final public function hasColumnType(): bool
     {
-        return $this->has(self::TYPE);
+        return $this->has(self::COLUMN_TYPE);
     }
     
-    final protected function setType(string $type): string
+    final protected function setColumnType(string $columnType): string
     {
-        return $this->set(self::TYPE, $type);
+        return $this->set(self::COLUMN_TYPE, $columnType);
     }
     
-    final protected function unsetType(): void
+    final protected function unsetColumnType(): void
     {
-        $this->unset(self::TYPE);
+        $this->unset(self::COLUMN_TYPE);
     }
     
-    final public function withType(string $type): static
+    final public function withColumnType(string $columnType): static
     {
-        return $this->with(self::TYPE, $type);
+        return $this->with(self::COLUMN_TYPE, $columnType);
     }
     
-    final public function withoutType(): static
+    final public function withoutColumnType(): static
     {
-        return $this->without(self::TYPE);
+        return $this->without(self::COLUMN_TYPE);
     }
-    
     
     abstract public function get(string $var): mixed;
     abstract public function has(string $var): bool;
