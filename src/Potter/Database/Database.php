@@ -148,5 +148,14 @@ final class Database extends AbstractDatabase
         }
     }
     
-    public function deleteTable(string $table): void;
+    public function deleteTable(string $table): void
+    {
+        if (!$this->tableExists($table)) {
+            throw new \Exception;
+        }
+        $driver = $this->getDatabaseDriver();
+        if ($driver instanceOf MySQLDriverInterface) {
+            $driver->dropTable($this->getHandle(), $table);
+        }
+    }
 }
