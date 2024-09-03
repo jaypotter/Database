@@ -18,7 +18,7 @@ trait TableTrait
     
     final public function createTable(ColumnInterface ...$columns): void
     {
-        $this->getDatabase()->createTable($table, ...$columns);
+        $this->getDatabase()->createTable($this->getName(), ...$columns);
     }
     
     abstract public function getDatabase(): DatabaseInterface;
