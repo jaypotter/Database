@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Potter\Database\Table;
 
-use Potter\Database\DatabaseInterface;
+use Potter\Database\{
+    Column\ColumnInterface,
+    DatabaseInterface
+};
 
 trait TableTrait 
 {
