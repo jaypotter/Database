@@ -9,6 +9,7 @@ use Potter\Database\DatabaseInterface;
 trait DatabaseAwareTrait 
 {
     private const string DATABASE = 'database';
+    private DatabaseInterface $database;
     
     final public function getDatabase(): DatabaseInterface
     {
