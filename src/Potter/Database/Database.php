@@ -144,7 +144,7 @@ final class Database extends AbstractDatabase
         }
         $driver = $this->getDatabaseDriver();
         if ($driver instanceOf MySQLDriverInterface) {
-            
+            $driver->createTable($table, ...$columns);
         }
     }
 }
