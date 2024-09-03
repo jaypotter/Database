@@ -15,9 +15,9 @@ final class Column extends AbstractColumn
     
     private string $type;
     
-    public function __construct(string $column, string $type)
+    public function __construct(string $column, string $columnType)
     {
         $this->setName($column);
-        $this->setType($type);
+        $this->setColumnType($columnType);
     }
 }
