@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Potter\Database;
 
 use Potter\Database\{
+    Column\ColumnInterface,
     Driver\Aware\DatabaseDriverAwareInterface,
     Result\ResultInterface,
     Statement\StatementInterface,
@@ -30,4 +31,5 @@ interface DatabaseInterface extends HandleInterface, DatabaseDriverAwareInterfac
     public function tableExists(string $table): bool;
     
     public function getTable(string $table): TableInterface;
+    public function createTable(string $table, ColumnInterface ...$columns): void;
 }

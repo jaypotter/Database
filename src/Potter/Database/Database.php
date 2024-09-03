@@ -6,10 +6,13 @@ namespace Potter\Database;
 
 use Potter\{
     Aware\AwareTrait,
-    Database\Statement\StatementInterface,
     Driver\Aware\DriverAwareTrait,
     Handle\HandleTrait,
     MySQL\Driver\MySQLDriverInterface
+};
+use Potter\Database\{
+    Column\ColumnInterface,
+    Statement\StatementInterface
 };
 use Potter\Database\Driver\{
     DatabaseDriverInterface, 
@@ -132,5 +135,16 @@ final class Database extends AbstractDatabase
     public function getTable(string $table): TableInterface
     {
         return new Table($this, $table);
+    }
+    
+    public function createTable(string $table, ColumnInterface ...$columns): void
+    {
+        if ($this->tableExists($table)) {
+            throw new \Exception;
+        }
+        $driver = $this->getDatabaseDriver();
+        if ($driver instanceOf MySQLDriverInterface) {
+            
+        }
     }
 }

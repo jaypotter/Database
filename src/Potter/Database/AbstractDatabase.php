@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Potter\Database;
 
 use Potter\Database\{
+    Column\ColumnInterface,
     Result\ResultInterface,
     Statement\StatementInterface, 
     Table\TableInterface
@@ -28,4 +29,5 @@ abstract class AbstractDatabase implements DatabaseInterface
     abstract public function tableExists(string $table): bool;
     
     abstract public function getTable(string $table): TableInterface;
+    abstract public function createTable(string $table, ColumnInterface ...$columns): void;
 }
