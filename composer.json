@@ -8,6 +8,7 @@
         "potter/aware": "dev-main",
         "potter/driver": "dev-main",
         "potter/handle": "dev-main",
+        "potter/name": "dev-main",
         "potter/stringable": "dev-main"
     },
     "license": "MIT",
