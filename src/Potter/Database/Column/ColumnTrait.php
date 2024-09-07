@@ -7,10 +7,12 @@ namespace Potter\Database\Column;
 trait ColumnTrait 
 {
     private const string COLUMN_TYPE = 'columnType';
+    private const string NULLABLE = 'nullable';
     private const string PRIMARY_KEY = 'primaryKey';
     private const string UNIQUE_CONSTRAINT = 'uniqueConstraint';
     
     private string $columnType;
+    private bool $nullable = false;
     private bool $primaryKey = false;
     private bool $uniqueConstraint = false;
     
@@ -44,12 +46,37 @@ trait ColumnTrait
         return $this->without(self::COLUMN_TYPE);
     }
     
+    final public function hasNullable(): bool
+    {
+        return $this->get(self::NULLABLE) === true;
+    }
+    
+    final protected function setNullable(bool $nullable = true): bool
+    {
+        return $this->set(self::NULLABLE, $nullable);
+    }
+    
+    final protected function unsetNullable(): void
+    {
+        $this->set(self::NULLABLE, false);
+    }
+    
+    final public function withNullable(bool $nullable = true): static
+    {
+        return $this->with(self::NULLABLE, $nullable);
+    }
+    
+    final public function withoutNullable(): static
+    {
+        return $this->with(self::NULLABLE, false);
+    }
+    
     final public function hasPrimaryKey(): bool
     {
         return $this->get(self::PRIMARY_KEY) === true;
     }
     
-    final protected function setPrimaryKey(bool $primaryKey = true): true
+    final protected function setPrimaryKey(bool $primaryKey = true): bool
     {
         return $this->set(self::PRIMARY_KEY, $primaryKey);
     }
@@ -74,7 +101,7 @@ trait ColumnTrait
         return $this->hasPrimaryKey() || $this->get(self::UNIQUE_CONSTRAINT) === true;
     }
     
-    final protected function setUniqueConstraint(bool $uniqueConstraint = true): true
+    final protected function setUniqueConstraint(bool $uniqueConstraint = true): bool
     {
         if (($uniqueConstraint === false) && $this->hasPrimaryKey()) {
             throw new \Exception;

@@ -13,6 +13,10 @@ interface ColumnInterface extends NameInterface
     public function withColumnType(string $type): static;
     public function withoutColumnType(): static;
     
+    public function hasNullable(): bool;
+    public function withNullable(bool $nullable = true): static;
+    public function withoutNullable(): static;
+    
     public function hasPrimaryKey(): bool;
     public function withPrimaryKey(bool $primaryKey = true): static;
     public function withoutPrimaryKey(): static;
