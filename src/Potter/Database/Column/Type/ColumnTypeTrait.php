@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Potter\Database\Column;
+namespace Potter\Database\Column\Type;
 
 trait ColumnTypeTrait 
 {

@@ -9,9 +9,16 @@ use Potter\{
     Name\NameTrait
 };
 
+use Potter\Database\Column\{
+    Type\ColumnTypeTrait,
+    NotNull\NotNullConstraintTrait,
+    Primary\PrimaryKeyTrait,
+    Unique\UniqueConstraintTrait
+};
+
 final class Column extends AbstractColumn
 {
-    use AwareTrait, ColumnTrait, ColumnTypeTrait, NameTrait, NotNullConstraintTrait, PrimaryKeyTrait, UniqueConstraintTrait;
+    use AwareTrait, ColumnTypeTrait, NameTrait, NotNullConstraintTrait, PrimaryKeyTrait, UniqueConstraintTrait;
         
     public function __construct(string $column, string $columnType, bool $primaryKey = false, bool $unique = false, bool $nullable = false)
     {
