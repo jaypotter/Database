@@ -4,7 +4,10 @@ declare(strict_types=1);
 
 namespace Potter\Database\Table\Common;
 
-use Potter\Database\Table\TableInterface;
+use Potter\Database\{
+    Column\Column,
+    Table\TableInterface
+};
 
 trait CommonTableTrait
 {
