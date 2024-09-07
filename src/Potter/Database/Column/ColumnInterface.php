@@ -7,6 +7,7 @@ namespace Potter\Database\Column;
 use Potter\Name\NameInterface;
 
 use Potter\Database\Column\{
+    Default\ColumnDefaultInterface,
     Increment\AutoIncrementInterface,
     NotNull\NotNullConstraintInterface,
     Primary\PrimaryKeyInterface,
@@ -14,7 +15,7 @@ use Potter\Database\Column\{
     Unique\UniqueConstraintInterface
 };
 
-interface ColumnInterface extends AutoIncrementInterface, ColumnTypeInterface, NameInterface, NotNullConstraintInterface, PrimaryKeyInterface, UniqueConstraintInterface
+interface ColumnInterface extends AutoIncrementInterface, ColumnDefaultInterface, ColumnTypeInterface, NameInterface, NotNullConstraintInterface, PrimaryKeyInterface, UniqueConstraintInterface
 {
     
 }
