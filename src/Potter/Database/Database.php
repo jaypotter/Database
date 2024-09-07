@@ -137,7 +137,7 @@ final class Database extends AbstractDatabase
         return new Table($this, $table);
     }
     
-    public function createTable(string $table, bool $primaryKey = false, bool $uniqueConstraint = false, ColumnInterface ...$columns): void
+    public function createTable(string $table, ColumnInterface ...$columns): void
     {
         if ($this->tableExists($table)) {
             throw new \Exception;
