@@ -12,7 +12,7 @@ use Potter\Database\Table\{
 
 final class Record extends AbstractRecord
 {
-    use AwareTrait, RecordTrait, TableAwareTrait;
+    use AwareTrait, RecordArrayTrait, RecordKeyTrait, RecordValuesTrait, TableAwareTrait;
     
     public function __construct(?TableInterface $table = null, ?array $values = null)
     {
