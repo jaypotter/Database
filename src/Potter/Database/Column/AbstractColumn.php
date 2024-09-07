@@ -14,14 +14,14 @@ abstract class AbstractColumn implements ColumnInterface
     abstract public function withoutColumnType(): static;
     
     abstract public function hasPrimaryKey(): bool;
-    abstract protected function setPrimaryKey(): true;
+    abstract protected function setPrimaryKey(bool $primaryKey = true): true;
     abstract protected function unsetPrimaryKey(): void;
-    abstract public function withPrimaryKey(): static;
+    abstract public function withPrimaryKey(bool $primaryKey = true): static;
     abstract public function withoutPrimaryKey(): static;
     
     abstract public function hasUniqueConstraint(): bool;
-    abstract protected function setUniqueConstraint(): true;
+    abstract protected function setUniqueConstraint(bool $uniqueConstraint = true): true;
     abstract protected function unsetUniqueConstraint(): void;
-    abstract public function withUniqueConstraint(): static;
+    abstract public function withUniqueConstraint(bool $uniqueConstraint = true): static;
     abstract public function withoutUniqueConstraint(): static;
 }
