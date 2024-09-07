@@ -13,11 +13,11 @@ abstract class AbstractColumn implements ColumnInterface
     abstract public function withColumnType(string $columnType): static;
     abstract public function withoutColumnType(): static;
     
-    abstract public function hasNullable(): bool;
-    abstract protected function setNullable(bool $nullable = true): bool;
-    abstract protected function unsetNullable(): void;
-    abstract public function withNullable(bool $nullable = true): static;
-    abstract public function withoutNullable(): static;
+    abstract public function hasNotNullConstraint(): bool;
+    abstract protected function setNotNullConstraint(bool $notNull = true): bool;
+    abstract protected function unsetNotNullConstraint(): void;
+    abstract public function withNotNullConstraint(bool $notNull = true): static;
+    abstract public function withoutNotNullConstraint(): static;
     
     abstract public function hasPrimaryKey(): bool;
     abstract protected function setPrimaryKey(bool $primaryKey = true): bool;
@@ -30,4 +30,10 @@ abstract class AbstractColumn implements ColumnInterface
     abstract protected function unsetUniqueConstraint(): void;
     abstract public function withUniqueConstraint(bool $uniqueConstraint = true): static;
     abstract public function withoutUniqueConstraint(): static;
+    
+    abstract public function hasAutoIncrement(): bool;
+    abstract protected function setAutoIncrement(bool $autoIncrement = true): bool;
+    abstract protected function unsetAutoIncrement(): void;
+    abstract public function withAutoIncrement(bool $autoIncrement = true): static;
+    abstract public function withoutAutoIncrement(): static;
 }
