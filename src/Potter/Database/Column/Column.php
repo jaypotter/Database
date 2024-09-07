@@ -12,12 +12,13 @@ use Potter\{
 final class Column extends AbstractColumn
 {
     use AwareTrait, ColumnTrait, NameTrait;
-    
-    private string $type;
-    
-    public function __construct(string $column, string $columnType)
+        
+    public function __construct(string $column, string $columnType, bool $primaryKey = false, bool $unique = false, bool $nullable = false)
     {
         $this->setName($column);
         $this->setColumnType($columnType);
+        $this->setPrimaryKey($primaryKey);
+        $this->setUniqueConstraint($primaryKey || $unique);
+        $this->setNullable($nullable || !$this->hasPrimaryKey());
     }
 }
