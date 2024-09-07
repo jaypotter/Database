@@ -13,9 +13,9 @@ interface ColumnInterface extends NameInterface
     public function withColumnType(string $type): static;
     public function withoutColumnType(): static;
     
-    public function hasNullable(): bool;
-    public function withNullable(bool $nullable = true): static;
-    public function withoutNullable(): static;
+    public function hasNotNullConstraint(): bool;
+    public function withNotNullConstraint(bool $notNull = true): static;
+    public function withoutNotNullConstraint(): static;
     
     public function hasPrimaryKey(): bool;
     public function withPrimaryKey(bool $primaryKey = true): static;
@@ -24,4 +24,8 @@ interface ColumnInterface extends NameInterface
     public function hasUniqueConstraint(): bool;
     public function withUniqueConstraint(bool $uniqueConstraint = true): static;
     public function withoutUniqueConstraint(): static;
+    
+    public function hasAutoIncrement(): bool;
+    public function withAutoIncrement(bool $autoIncrement = true): static;
+    public function withoutAutoIncrement(): static;
 }
