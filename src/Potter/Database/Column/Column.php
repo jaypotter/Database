@@ -11,7 +11,7 @@ use Potter\{
 
 final class Column extends AbstractColumn
 {
-    use AwareTrait, ColumnTrait, NameTrait;
+    use AwareTrait, ColumnTrait, ColumnTypeTrait, NameTrait, NotNullConstraintTrait, PrimaryKeyTrait, UniqueConstraintTrait;
         
     public function __construct(string $column, string $columnType, bool $primaryKey = false, bool $unique = false, bool $nullable = false)
     {
