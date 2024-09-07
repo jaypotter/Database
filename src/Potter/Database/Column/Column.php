@@ -21,7 +21,7 @@ final class Column extends AbstractColumn
 {
     use AutoIncrementTrait, AwareTrait, ColumnTypeTrait, NameTrait, NotNullConstraintTrait, PrimaryKeyTrait, UniqueConstraintTrait;
         
-    public function __construct(string $column, string $columnType, bool $primaryKey = false, bool $unique = false, bool $nullable = false)
+    public function __construct(string $column, string $columnType, bool $primaryKey = false, bool $unique = false, bool $nullable = false, bool $autoIncrement = false)
     {
         $this->setName($column);
         $this->setColumnType($columnType);
@@ -31,5 +31,6 @@ final class Column extends AbstractColumn
             $nullable = false;
         }
         $this->setNullable($nullable);
+        $this->setAutoIncrement($autoIncrement);
     }
 }
