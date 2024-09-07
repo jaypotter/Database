@@ -31,7 +31,7 @@ trait TableTrait
     
     final public function deleteTable(): void
     {
-        if ($this->tableExists()) {
+        if (!$this->tableExists()) {
             return;
         }
         $this->getDatabase()->deleteTable($this->getName());
