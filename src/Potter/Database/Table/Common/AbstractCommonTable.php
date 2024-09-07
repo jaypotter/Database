@@ -8,5 +8,5 @@ use Potter\Database\Table\Aware\AbstractTableAware;
 
 abstract class AbstractCommonTable extends AbstractTableAware implements CommonTableInterface
 {
-
+    abstract public function createTableIfNotExists(): void;
 }
