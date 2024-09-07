@@ -20,4 +20,6 @@ interface RecordInterface extends ArrayAccessInterface, TableAwareInterface
     public function hasKey(string $key): bool;
     public function withKey(string $key, ?mixed $value = null): static;
     public function withoutKey(string $key): static;
+    
+    public function insert(): void;
 }

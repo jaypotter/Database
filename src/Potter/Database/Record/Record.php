@@ -19,4 +19,9 @@ final class Record extends AbstractRecord
         $this->setTable($table);
         $this->setValues($values);
     }
+    
+    public function insert(): void
+    {
+        $this->getTable()->insertRecord($this->getValues());
+    }
 }

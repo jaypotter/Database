@@ -158,4 +158,15 @@ final class Database extends AbstractDatabase
             $driver->dropTable($this->getHandle(), $table);
         }
     }
+    
+    public function insertRecord(string $table, array $values): void
+    {
+        if (!$this->tableExists($table)) {
+            throw new \Exception;
+        }
+        $driver = $this->getDatabaseDriver();
+        if ($driver instanceOf MySQLDriverInterface) {
+            $driver->insert($this->getHandle(), $table, $values);
+        }
+    }
 }

@@ -34,4 +34,5 @@ interface DatabaseInterface extends HandleInterface, DatabaseDriverAwareInterfac
     public function createTable(string $table, ColumnInterface ...$columns): void;
     public function deleteTable(string $table): void;
     
+    public function insertRecord(string $table, array $values): void;
 }

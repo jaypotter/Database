@@ -16,4 +16,6 @@ interface TableInterface extends DatabaseAwareInterface, NameInterface
     public function createTable(ColumnInterface ...$columns): void;
     public function createTableIfNotExists(ColumnInterface ...$columns): void;
     public function deleteTable(): void;
+    
+    public function insertRecord(array $values): void;
 }

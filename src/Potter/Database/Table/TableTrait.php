@@ -37,6 +37,11 @@ trait TableTrait
         $this->getDatabase()->deleteTable($this->getName());
     }
     
+    final public function insertRecord(array $values): void
+    {
+        $this->getDatabase()->insertRecord($this->getName(), $values);
+    }
+    
     abstract public function getDatabase(): DatabaseInterface;
     abstract public function getName(): string;
 }

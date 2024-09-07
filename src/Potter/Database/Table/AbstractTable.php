@@ -12,4 +12,6 @@ abstract class AbstractTable implements TableInterface
     abstract public function createTable(ColumnInterface ...$columns): void;
     abstract public function createTableIfNotExists(ColumnInterface ...$columns): void;
     abstract public function deleteTable(): void;
+    
+    abstract public function insertRecord(array $values): void;
 }

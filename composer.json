@@ -9,7 +9,8 @@
         "potter/driver": "dev-main",
         "potter/handle": "dev-main",
         "potter/name": "dev-main",
-        "potter/stringable": "dev-main"
+        "potter/stringable": "dev-main",
+        "potter/mysql": "dev-main"
     },
     "license": "MIT",
     "autoload": {

@@ -21,4 +21,6 @@ abstract class AbstractRecord extends AbstractArrayAccess implements RecordInter
     abstract protected function unsetKey(string $key): void;
     abstract public function withKey(string $key, ?mixed $value = null): static;
     abstract public function withoutKey(string $key): static;
+    
+    abstract public function insert(): void;
 }
