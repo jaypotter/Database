@@ -10,15 +10,16 @@ use Potter\{
 };
 
 use Potter\Database\Column\{
-    Type\ColumnTypeTrait,
+    Increment\AutoIncrementTrait,
     NotNull\NotNullConstraintTrait,
     Primary\PrimaryKeyTrait,
+    Type\ColumnTypeTrait,
     Unique\UniqueConstraintTrait
 };
 
 final class Column extends AbstractColumn
 {
-    use AwareTrait, ColumnTypeTrait, NameTrait, NotNullConstraintTrait, PrimaryKeyTrait, UniqueConstraintTrait;
+    use AutoIncrementTrait, AwareTrait, ColumnTypeTrait, NameTrait, NotNullConstraintTrait, PrimaryKeyTrait, UniqueConstraintTrait;
         
     public function __construct(string $column, string $columnType, bool $primaryKey = false, bool $unique = false, bool $nullable = false)
     {
