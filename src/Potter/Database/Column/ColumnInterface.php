@@ -14,10 +14,10 @@ interface ColumnInterface extends NameInterface
     public function withoutColumnType(): static;
     
     public function hasPrimaryKey(): bool;
-    public function withPrimaryKey(): static;
+    public function withPrimaryKey(bool $primaryKey = true): static;
     public function withoutPrimaryKey(): static;
     
     public function hasUniqueConstraint(): bool;
-    public function withUniqueConstraint(): static;
+    public function withUniqueConstraint(bool $uniqueConstraint = true): static;
     public function withoutUniqueConstraint(): static;
 }
