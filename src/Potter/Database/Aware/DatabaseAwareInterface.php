@@ -10,6 +10,6 @@ interface DatabaseAwareInterface
 {
     public function getDatabase(): DatabaseInterface;
     public function hasDatabase(): bool;
-    public function withDatabase(DatabaseInterface $database): static;
+    public function withDatabase(?DatabaseInterface $database = null): static;
     public function withoutDatabase(): static;
 }
