@@ -29,6 +29,14 @@ trait TableTrait
         $this->createTable(...$columns);
     }
     
+    final public function deleteTable(): void
+    {
+        if ($this->tableExists()) {
+            return;
+        }
+        $this->getDatabase()->deleteTable($this->getName());
+    }
+    
     abstract public function getDatabase(): DatabaseInterface;
     abstract public function getName(): string;
 }

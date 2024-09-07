@@ -15,4 +15,5 @@ interface TableInterface extends DatabaseAwareInterface, NameInterface
     public function tableExists(): bool;
     public function createTable(ColumnInterface ...$columns): void;
     public function createTableIfNotExists(ColumnInterface ...$columns): void;
+    public function deleteTable(): void;
 }
