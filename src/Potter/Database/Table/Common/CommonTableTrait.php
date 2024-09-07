@@ -14,7 +14,7 @@ trait CommonTableTrait
     final public function createTableIfNotExists(): void
     {
         $this->getTable()->createTableIfNotExists(
-            new Column('Id', 'int', primaryKey: true, autoIncrement: true),
+            new Column('Common_Id', 'int', primaryKey: true, autoIncrement: true),
             new Column('Created_At', 'timestamp', notNull: true, columnDefault: 'CURRENT_TIMESTAMP'));
     }
     
