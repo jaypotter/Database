@@ -49,9 +49,9 @@ trait ColumnTrait
         return $this->get(self::PRIMARY_KEY) === true;
     }
     
-    final protected function setPrimaryKey(): true
+    final protected function setPrimaryKey(bool $primaryKey = true): true
     {
-        return $this->set(self::PRIMARY_KEY, true);
+        return $this->set(self::PRIMARY_KEY, $primaryKey);
     }
     
     final protected function unsetPrimaryKey(): void
@@ -59,9 +59,9 @@ trait ColumnTrait
         $this->set(self::PRIMARY_KEY, false);
     }
     
-    final public function withPrimaryKey(): static
+    final public function withPrimaryKey(bool $primaryKey = true): static
     {
-        return $this->with(self::PRIMARY_KEY, true);
+        return $this->with(self::PRIMARY_KEY, $primaryKey);
     }
     
     final public function withoutPrimaryKey(): static
@@ -74,19 +74,22 @@ trait ColumnTrait
         return $this->hasPrimaryKey() || $this->get(self::UNIQUE_CONSTRAINT) === true;
     }
     
-    final protected function setUniqueConstraint(): true
+    final protected function setUniqueConstraint(bool $uniqueConstraint = true): true
     {
-        return $this->set(self::UNIQUE_CONSTRAINT, true);
+        if (($uniqueConstraint === false) && $this->hasPrimaryKey()) {
+            throw new \Exception;
+        }
+        return $this->set(self::UNIQUE_CONSTRAINT, $uniqueConstraint);
     }
     
     final protected function unsetUniqueConstraint(): void
     {
-        $this->set(self::UNIQUE_CONSTRAINT, false);
+        $this->setUniqueConstraint(false);
     }
     
-    final public function withUniqueConstraint(): static
+    final public function withUniqueConstraint(bool $uniqueConstraint = true): static
     {
-        return $this->with(self::UNIQUE_CONSTRAINT, true);
+        return $this->with(self::UNIQUE_CONSTRAINT, $uniqueConstraint);
     }
     
     final public function withoutUniqueConstraint(): static
