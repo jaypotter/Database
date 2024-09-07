@@ -21,6 +21,14 @@ trait TableTrait
         $this->getDatabase()->createTable($this->getName(), ...$columns);
     }
     
+    final public function createTableIfNotExists(ColumnInterface ...$columns): void
+    {
+        if ($this->tableExists()) {
+            return;
+        }
+        $this->createTable(...$columns);
+    }
+    
     abstract public function getDatabase(): DatabaseInterface;
     abstract public function getName(): string;
 }

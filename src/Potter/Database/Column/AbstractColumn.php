@@ -12,4 +12,16 @@ abstract class AbstractColumn implements ColumnInterface
     abstract protected function unsetColumnType(): void;
     abstract public function withColumnType(string $columnType): static;
     abstract public function withoutColumnType(): static;
+    
+    abstract public function hasPrimaryKey(): bool;
+    abstract protected function setPrimaryKey(): true;
+    abstract protected function unsetPrimaryKey(): void;
+    abstract public function withPrimaryKey(): static;
+    abstract public function withoutPrimaryKey(): static;
+    
+    abstract public function hasUniqueConstraint(): bool;
+    abstract protected function setUniqueConstraint(): true;
+    abstract protected function unsetUniqueConstraint(): void;
+    abstract public function withUniqueConstraint(): static;
+    abstract public function withoutUniqueConstraint(): static;
 }

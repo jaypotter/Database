@@ -12,4 +12,12 @@ interface ColumnInterface extends NameInterface
     public function hasColumnType(): bool;
     public function withColumnType(string $type): static;
     public function withoutColumnType(): static;
+    
+    public function hasPrimaryKey(): bool;
+    public function withPrimaryKey(): static;
+    public function withoutPrimaryKey(): static;
+    
+    public function hasUniqueConstraint(): bool;
+    public function withUniqueConstraint(): static;
+    public function withoutUniqueConstraint(): static;
 }
