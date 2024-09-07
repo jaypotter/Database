@@ -19,6 +19,9 @@ final class Column extends AbstractColumn
         $this->setColumnType($columnType);
         $this->setPrimaryKey($primaryKey);
         $this->setUniqueConstraint($primaryKey || $unique);
-        $this->setNullable($nullable || !$this->hasPrimaryKey());
+        if ($this->hasPrimaryKey()) {
+            $nullable = false;
+        }
+        $this->setNullable($nullable);
     }
 }
