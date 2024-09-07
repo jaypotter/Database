@@ -29,7 +29,7 @@ final class Column extends AbstractColumn
         $this->setPrimaryKey($primaryKey);
         $this->setUniqueConstraint($primaryKey || $unique);
         $this->setNotNullConstraint($notNull || $this->hasPrimaryKey());
-        $this->setColumnDefault($columnType);
+        $this->setColumnDefault($columnDefault);
         $this->setAutoIncrement($autoIncrement);
     }
 }
