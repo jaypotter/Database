@@ -8,12 +8,15 @@ use Potter\Database\{
     Column\ColumnInterface,
     Driver\Aware\DatabaseDriverAwareInterface,
     Result\ResultInterface,
-    Statement\StatementInterface,
+    Statement\StatementInterface
+};
+use Potter\Database\Table\{
+    Common\Aware\CommonTableAwareInterface,
     Table\TableInterface
 };
 use Potter\Handle\HandleInterface;
 
-interface DatabaseInterface extends HandleInterface, DatabaseDriverAwareInterface
+interface DatabaseInterface extends CommonTableAwareInterface, HandleInterface, DatabaseDriverAwareInterface
 {
     public function prepare(string $query): StatementInterface;
     
