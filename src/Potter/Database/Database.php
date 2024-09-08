@@ -7,25 +7,13 @@ namespace Potter\Database;
 use Potter\{
     Aware\AwareTrait,
     Driver\Aware\DriverAwareTrait,
-    Handle\HandleTrait,
-    MySQL\Driver\MySQLDriverInterface
-};
-use Potter\Database\{
-    Column\ColumnInterface,
-    Statement\StatementInterface
+    Handle\HandleTrait
 };
 use Potter\Database\Driver\{
     DatabaseDriverInterface, 
     Aware\DatabaseDriverAwareTrait
 };
-use Potter\Database\Result\{
-    ResultInterface, 
-    EmptyResult
-};
-use Potter\Database\Table\{
-    TableInterface,
-    Table
-};
+use Potter\Database\Table\Table;
 use Potter\Database\Table\Common\{
     CommonTableInterface,
     CommonTable,
@@ -34,7 +22,7 @@ use Potter\Database\Table\Common\{
 
 final class Database extends AbstractDatabase
 {
-    use AwareTrait, CommonTableAwareTrait, DriverAwareTrait, DatabaseDriverAwareTrait, HandleTrait;
+    use AwareTrait, CommonTableAwareTrait, DatabaseTrait, DatabaseDriverAwareTrait, DriverAwareTrait, HandleTrait;
     
     public function __construct(?object $handle = null, ?DatabaseDriverInterface $databaseDriver = null)
     {
@@ -45,138 +33,5 @@ final class Database extends AbstractDatabase
                 new Table(
                     database: $this, 
                     table: CommonTableInterface::COMMON_TABLE)));
-    }
-        
-    public function prepare(string $query): StatementInterface
-    {
-        return $this->getDatabaseDriver()->prepare(
-            query: $query,
-            handle: $this->getHandle());
-    }
-    
-    private function flattenResult(ResultInterface $result): ResultInterface
-    {
-        $flattenedResult = [];
-        foreach ($result as $row) {
-            if (count($row) > 1) {
-                array_push($flattenedResult, array_values($row));
-                continue;
-            }
-            array_push($flattenedResult, array_values($row)[0]);
-        }
-        return new EmptyResult($flattenedResult);
-    }
-    
-    public function getCurrentDatabase(): ResultInterface
-    {
-        $driver = $this->getDatabaseDriver();
-        if ($driver instanceOf MySQLDriverInterface) {
-            return $this->flattenResult($driver->selectDatabase($this->getHandle()));
-        }
-        return new EmptyResult;
-    }
-    
-    public function isCurrentDatabase(string $database): bool
-    {
-        return $database === $this->getCurrentDatabase()->toArray()[0];
-    }
-    
-    public function getDatabases(): ResultInterface
-    {
-        $driver = $this->getDatabaseDriver();
-        if ($driver instanceOf MySQLDriverInterface) {
-            return $this->flattenResult($driver->showDatabases($this->getHandle()));
-        }
-        return new EmptyResult;
-    }
-    
-    public function databaseExists(string $database): bool
-    {
-        return in_array($database, $this->getDatabases()->toArray());
-    }
-    
-    public function createDatabase(string $database): void
-    {
-        if ($this->databaseExists($database)) {
-            throw new \Exception;
-        }
-        $driver = $this->getDatabaseDriver();
-        if ($driver instanceOf MySQLDriverInterface) {
-            $driver->createDatabase($this->getHandle(), $database);
-        }
-    }
-    
-    public function deleteDatabase(string $database): void
-    {
-        if (!$this->databaseExists($database)) {
-            throw new \Exception;
-        }
-        $driver = $this->getDatabaseDriver();
-        if ($driver instanceOf MySQLDriverInterface) {
-            $driver->dropDatabase($this->getHandle(), $database);
-        }
-    }
-       
-    public function useDatabase(string $database): void
-    {
-        if (!$this->databaseExists($database)) {
-            throw new \Exception;
-        }
-        $driver = $this->getDatabaseDriver();
-        if ($driver instanceOf MySQLDriverInterface) {
-            $driver->use($this->getHandle(), $database);
-        }
-    }
-    
-    final public function getTables(): ResultInterface
-    {
-        $driver = $this->getDatabaseDriver();
-        if ($driver instanceOf MySQLDriverInterface) {
-            return $this->flattenResult($driver->showTables($this->getHandle()));
-        }
-        return new EmptyResult;
-    }
-    
-    public function tableExists(string $table): bool
-    {
-        return in_array($table, $this->getTables()->toArray());
-    }
-    
-    public function getTable(string $table): TableInterface
-    {
-        return new Table($this, $table);
-    }
-    
-    public function createTable(string $table, ColumnInterface ...$columns): void
-    {
-        if ($this->tableExists($table)) {
-            throw new \Exception;
-        }
-        $driver = $this->getDatabaseDriver();
-        if ($driver instanceOf MySQLDriverInterface) {
-            $driver->createTable($this->getHandle(), $table, ...$columns);
-        }
-    }
-    
-    public function deleteTable(string $table): void
-    {
-        if (!$this->tableExists($table)) {
-            throw new \Exception;
-        }
-        $driver = $this->getDatabaseDriver();
-        if ($driver instanceOf MySQLDriverInterface) {
-            $driver->dropTable($this->getHandle(), $table);
-        }
-    }
-    
-    public function insertRecord(string $table, array $values): void
-    {
-        if (!$this->tableExists($table)) {
-            throw new \Exception;
-        }
-        $driver = $this->getDatabaseDriver();
-        if ($driver instanceOf MySQLDriverInterface) {
-            $driver->insert($this->getHandle(), $table, $values);
-        }
     }
 }

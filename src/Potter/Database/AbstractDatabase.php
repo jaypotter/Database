@@ -22,6 +22,7 @@ abstract class AbstractDatabase implements DatabaseInterface
     abstract public function databaseExists(string $database): bool;
     
     abstract public function createDatabase(string $database): void;
+    abstract public function createDatabaseIfNotExists(string $database): void;
     abstract public function deleteDatabase(string $database): void;
     abstract public function useDatabase(string $database): void;
     
