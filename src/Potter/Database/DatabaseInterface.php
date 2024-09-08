@@ -12,7 +12,7 @@ use Potter\Database\{
 };
 use Potter\Database\Table\{
     Common\Aware\CommonTableAwareInterface,
-    Table\TableInterface
+    TableInterface
 };
 use Potter\Handle\HandleInterface;
 
