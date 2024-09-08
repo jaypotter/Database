@@ -5,12 +5,17 @@ declare(strict_types=1);
 namespace Potter\Database;
 
 use Potter\Database\{
+    Column\ColumnInterface,
     Driver\DatabaseDriverInterface,
-    Table\Table
+    Statement\StatementInterface
 };
 use Potter\Database\Result\{
     ResultInterface,
     EmptyResult
+};
+use Potter\Database\Table\{
+    TableInterface,
+    Table
 };
 use Potter\MySQL\Driver\MySQLDriverInterface;
 
