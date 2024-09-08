@@ -8,5 +8,7 @@ use Potter\Database\Table\Aware\TableAwareInterface;
 
 interface CommonTableInterface extends TableAwareInterface
 {
+    public const string COMMON_TABLE = 'Common';
+    
     public function createTableIfNotExists(): void;
 }
