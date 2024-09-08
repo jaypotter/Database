@@ -73,7 +73,7 @@ trait DatabaseTrait
         }
     }
     
-    final private function flattenResult(ResultInterface $result): ResultInterface
+    private function flattenResult(ResultInterface $result): ResultInterface
     {
         $flattenedResult = [];
         foreach ($result as $row) {
