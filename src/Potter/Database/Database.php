@@ -26,15 +26,25 @@ use Potter\Database\Table\{
     TableInterface,
     Table
 };
+use Potter\Database\Table\Common\{
+    CommonTableInterface,
+    CommonTable,
+    Aware\CommonTableAwareTrait
+};
 
 final class Database extends AbstractDatabase
 {
-    use AwareTrait, DriverAwareTrait, DatabaseDriverAwareTrait, HandleTrait;
+    use AwareTrait, CommonTableAwareTrait, DriverAwareTrait, DatabaseDriverAwareTrait, HandleTrait;
     
     public function __construct(?object $handle = null, ?DatabaseDriverInterface $databaseDriver = null)
     {
         $this->setHandle($handle);
         $this->setDatabaseDriver($databaseDriver);
+        $this->setCommonTable(
+            new CommonTable(
+                new Table(
+                    database: $this, 
+                    table: CommonTableInterface::COMMON_TABLE)));
     }
         
     public function prepare(string $query): StatementInterface
