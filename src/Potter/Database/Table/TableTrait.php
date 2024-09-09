@@ -10,7 +10,7 @@ use Potter\Database\{
 };
 
 trait TableTrait 
-{
+{    
     final public function tableExists(): bool
     {
         return $this->getDatabase()->tableExists($this->getName());
@@ -40,6 +40,11 @@ trait TableTrait
     final public function insertRecord(array $values): void
     {
         $this->getDatabase()->insertRecord($this->getName(), $values);
+    }
+    
+    public function getRecords(array $criteria = []): ResultInterface
+    {
+        $this->getDatabase()->getRecords($this->getName(), $criteria);
     }
     
     abstract public function getDatabase(): DatabaseInterface;

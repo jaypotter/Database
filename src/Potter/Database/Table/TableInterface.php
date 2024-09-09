@@ -6,7 +6,8 @@ namespace Potter\Database\Table;
 
 use Potter\Database\{
     Aware\DatabaseAwareInterface,
-    Column\ColumnInterface
+    Column\ColumnInterface,
+    Result\ResultInterface
 };
 use Potter\Name\NameInterface;
 
@@ -17,5 +18,6 @@ interface TableInterface extends DatabaseAwareInterface, NameInterface
     public function createTableIfNotExists(ColumnInterface ...$columns): void;
     public function deleteTable(): void;
     
+    public function getRecords(array $criteria = []): ResultInterface;
     public function insertRecord(array $values): void;
 }
