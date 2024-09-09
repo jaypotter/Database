@@ -5,8 +5,9 @@ declare(strict_types=1);
 namespace Potter\Database\Table;
 
 use Potter\Database\{
+    DatabaseInterface,
     Column\ColumnInterface,
-    DatabaseInterface
+    Result\ResultInterface
 };
 
 trait TableTrait 
