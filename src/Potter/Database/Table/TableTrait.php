@@ -45,7 +45,7 @@ trait TableTrait
     
     public function getRecords(array $criteria = []): ResultInterface
     {
-        $this->getDatabase()->getRecords($this->getName(), $criteria);
+        return $this->getDatabase()->getRecords($this->getName(), $criteria);
     }
     
     abstract public function getDatabase(): DatabaseInterface;
