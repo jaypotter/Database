@@ -8,6 +8,6 @@ use Potter\Database\Result\ResultInterface;
 
 abstract class AbstractStatement implements StatementInterface
 {
-    abstract public function execute(array $vars = []): void;
+    abstract public function execute(mixed ...$vars): void;
     abstract public function getResult(): ResultInterface;
 }
