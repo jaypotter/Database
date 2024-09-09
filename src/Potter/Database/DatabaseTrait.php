@@ -166,6 +166,17 @@ trait DatabaseTrait
         }
     }
     
+    final public function getRecords(string $table, array $criteria = []): ResultInterface
+    {
+        if (!$this->tableExists($table)) {
+            throw new \Exception;
+        }
+        $driver = $this->getDatabaseDriver();
+        if ($driver instanceOf MySQLDriverInterface) {
+            return $driver->select($this->getHandle(), $table, criteria: $criteria);
+        }
+    }
+    
     abstract public function getDatabaseDriver(): DatabaseDriverInterface;
     abstract public function getHandle(): object;
 }
