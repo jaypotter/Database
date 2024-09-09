@@ -39,4 +39,5 @@ interface DatabaseInterface extends CommonTableAwareInterface, HandleInterface, 
     public function deleteTable(string $table): void;
     
     public function insertRecord(string $table, array $values): void;
+    public function getLastInsertId(): int;
 }

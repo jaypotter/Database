@@ -34,4 +34,5 @@ abstract class AbstractDatabase implements DatabaseInterface
     abstract public function deleteTable(string $table): void;
     
     abstract public function insertRecord(string $table, array $values): void;
+    abstract public function getLastInsertId(): int;
 }

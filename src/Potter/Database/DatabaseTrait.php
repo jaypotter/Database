@@ -18,7 +18,7 @@ use Potter\Database\Table\{
     Table
 };
 use Potter\MySQL\Driver\MySQLDriverInterface;
-
+     
 trait DatabaseTrait 
 {
     final public function createDatabase(string $database): void
@@ -131,6 +131,11 @@ trait DatabaseTrait
         if ($driver instanceOf MySQLDriverInterface) {
             $driver->insert($this->getHandle(), $table, $values);
         }
+    }
+    
+    final public function getLastInsertId(): int
+    {
+        return $this->getDatabaseDriver()->getLastInsertId();
     }
     
     final public function isCurrentDatabase(string $database): bool

@@ -12,4 +12,6 @@ use Potter\{
 interface DatabaseDriverInterface extends DriverInterface
 {
     public function prepare(string $query, object $handle): StatementInterface;
+    
+    public function getLastInsertId(object $handle): int;
 }
