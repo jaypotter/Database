@@ -11,6 +11,6 @@ use Potter\{
 
 interface StatementInterface extends StringableInterface
 {
-    public function execute(array $vars = []): void;
+    public function execute(mixed ...$vars): void;
     public function getResult(): ResultInterface;
 }
