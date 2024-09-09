@@ -25,6 +25,7 @@ trait TableAwareTrait
     {
         if (is_null($table)) {
             $this->unsetTable();
+            return null;
         }
         return $this->set(self::TABLE, $table);
     }
