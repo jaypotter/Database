@@ -135,7 +135,7 @@ trait DatabaseTrait
     
     final public function getLastInsertId(): int
     {
-        return $this->getDatabaseDriver()->getLastInsertId();
+        return $this->getDatabaseDriver()->getLastInsertId($this->getHandle());
     }
     
     final public function isCurrentDatabase(string $database): bool
