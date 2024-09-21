@@ -40,6 +40,7 @@ interface DatabaseInterface extends CommonTableAwareInterface, HandleInterface, 
     
     public function insertRecord(string $table, array $values): void;
     public function getLastInsertId(): int;
+    public function updateRecords(string $table, array $values, array $criteria = []): void;
     
     public function getRecords(string $table, array $criteria = []): ResultInterface;
 }

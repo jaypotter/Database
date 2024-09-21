@@ -43,9 +43,14 @@ trait TableTrait
         $this->getDatabase()->insertRecord($this->getName(), $values);
     }
     
-    public function getRecords(array $criteria = []): ResultInterface
+    final public function getRecords(array $criteria = []): ResultInterface
     {
         return $this->getDatabase()->getRecords($this->getName(), $criteria);
+    }
+    
+    final public function updateRecords(array $values, array $criteria = []): void
+    {
+        return $this->getDatabase()->updateRecords($this->getName(), $values, $criteria);
     }
     
     abstract public function getDatabase(): DatabaseInterface;

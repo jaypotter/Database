@@ -20,4 +20,5 @@ interface TableInterface extends DatabaseAwareInterface, NameInterface
     
     public function getRecords(array $criteria = []): ResultInterface;
     public function insertRecord(array $values): void;
+    public function updateRecords(array $values, array $criteria = []): void;
 }

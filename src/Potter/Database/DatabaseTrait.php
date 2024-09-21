@@ -177,6 +177,17 @@ trait DatabaseTrait
         }
     }
     
+    final public function updateRecords(string $table, array $values, array $criteria = []): void
+    {
+        if (!$this->tableExists($table)) {
+            throw new \Exception;
+        }
+        $driver = $this->getDatabaseDriver();
+        if ($driver instanceOf MySQLDriverInterface) {
+            $driver->update($this->getHandle(), $table, $values, $criteria);
+        }
+    }
+    
     abstract public function getDatabaseDriver(): DatabaseDriverInterface;
     abstract public function getHandle(): object;
 }

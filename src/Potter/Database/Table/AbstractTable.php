@@ -18,4 +18,5 @@ abstract class AbstractTable implements TableInterface
     
     abstract public function getRecords(array $criteria = []): ResultInterface;
     abstract public function insertRecord(array $values): void;
+    abstract public function updateRecords(array $values, array $criteria = []): void;
 }
