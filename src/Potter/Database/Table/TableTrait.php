@@ -50,7 +50,7 @@ trait TableTrait
     
     final public function updateRecords(array $values, array $criteria = []): void
     {
-        return $this->getDatabase()->updateRecords($this->getName(), $values, $criteria);
+        $this->getDatabase()->updateRecords($this->getName(), $values, $criteria);
     }
     
     abstract public function getDatabase(): DatabaseInterface;
